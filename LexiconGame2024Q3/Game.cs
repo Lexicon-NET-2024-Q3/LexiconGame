@@ -12,7 +12,17 @@ internal class Game
 
     private void Play()
     {
-        throw new NotImplementedException();
+       //DrawMap
+
+       //GetCommand
+
+       //Act
+
+       //DrawMap
+
+       //EnemyAction
+
+       //DrawMap
     }
 
     private void Initialize()
