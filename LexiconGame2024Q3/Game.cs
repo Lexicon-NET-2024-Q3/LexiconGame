@@ -1,4 +1,5 @@
 ﻿
+
 internal class Game
 {
     private Map map = null!;
@@ -12,17 +13,42 @@ internal class Game
 
     private void Play()
     {
-       //DrawMap
+        bool gameInProgress = true;
 
-       //GetCommand
+        do
+        {
+        //DrawMap
+        DrawMap();
 
-       //Act
+            //GetCommand
 
-       //DrawMap
+            //Act
 
-       //EnemyAction
+            //DrawMap
 
-       //DrawMap
+            //EnemyAction
+
+            //DrawMap
+            Console.ReadKey();
+
+        } while (gameInProgress);
+    }
+
+    private void DrawMap()
+    {
+        Console.Clear();
+        for (int y = 0; y < map.Height; y++)
+        {
+            for (int x = 0; x < map.Width; x++)
+            {
+                Cell? cell = map.GetCell(y, x);
+                //ToDo: Handle null
+                Console.ForegroundColor = cell.Color;
+                Console.Write(cell.Symbol);
+            }
+            Console.WriteLine(); 
+        }
+        Console.ForegroundColor = ConsoleColor.Gray;  
     }
 
     private void Initialize()

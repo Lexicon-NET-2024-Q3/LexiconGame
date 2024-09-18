@@ -1,13 +1,17 @@
-﻿internal class Map
+﻿
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+
+internal class Map
 {
     private Cell[,] cells; 
-    private int width;
-    private int height;
+    public int Width { get; }
+    public int Height { get; }
 
     public Map(int width, int height)
     {
-        this.width = width;
-        this.height = height;
+       Width = width;
+       Height = height;
 
         cells = new Cell[width, height];
 
@@ -17,6 +21,21 @@
             {
                 cells[y, x] = new Cell(); 
             }
+        }
+    }
+
+    //ToDo: Do better
+    //[return: MaybeNull]
+    internal Cell? GetCell(int y, int x)
+    {
+        try
+        {
+            return cells[y, x]; 
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            return null; 
         }
     }
 }
