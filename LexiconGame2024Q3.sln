@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexiconGame2024Q3", "LexiconGame2024Q3\LexiconGame2024Q3.csproj", "{18772F6A-2EC5-4454-B179-9C3315FF9175}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18772F6A-2EC5-4454-B179-9C3315FF9175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18772F6A-2EC5-4454-B179-9C3315FF9175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18772F6A-2EC5-4454-B179-9C3315FF9175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18772F6A-2EC5-4454-B179-9C3315FF9175}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9489B091-D3D1-4289-ACC7-EAC0AE44470D}
+	EndGlobalSection
+EndGlobal
