@@ -1,5 +1,7 @@
 ﻿
 
+using LexiconGame2024Q3.Entities;
+
 internal class Game
 {
     private Map map = null!;
@@ -55,6 +57,8 @@ internal class Game
     {
         //ToDo: Read from config maybe
         map = new Map(width: 10, height: 10);
-        hero = new Hero(); 
+        var heroCell = map.GetCell(0, 0); 
+        hero = new Hero(heroCell);
+        
     }
 }

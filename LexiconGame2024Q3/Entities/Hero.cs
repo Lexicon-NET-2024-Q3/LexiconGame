@@ -1,6 +1,8 @@
-﻿internal class Hero
+﻿
+internal class Hero : Creature
 {
-    public Hero()
+    public Hero(Cell cell) : base(cell, "H ")
     {
+        
     }
 }
