@@ -8,8 +8,18 @@ namespace LexiconGame2024Q3.Entities
 {
     internal class Creature : IDrawable
     {
-        
-        public Cell Cell { get; }
+
+        //public Cell Cell { get; }
+        private Cell cell;
+        public Cell Cell
+        {
+            get => cell;
+            set
+            {
+                ArgumentNullException.ThrowIfNull(value, nameof(cell));
+                cell = value; 
+            }
+        }
         public string Symbol { get; }
 
         //public string Symbol { get; }
