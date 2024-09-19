@@ -43,10 +43,24 @@ internal class Game
         {
             for (int x = 0; x < map.Width; x++)
             {
-                Cell? cell = map.GetCell(y, x);
-                //ToDo: Handle null
-                Console.ForegroundColor = cell.Color;
-                Console.Write(cell.Symbol);
+                //Cell? cell = map.GetCell(y, x);
+                ////ToDo: Handle null
+                //Console.ForegroundColor = cell.Color;
+                //Console.Write(cell.Symbol);
+
+                IDrawable? drawable = map.GetCell(y, x);
+                ArgumentNullException.ThrowIfNull(drawable, nameof(drawable));
+
+                foreach (var creature in map.Creatures)
+                {
+                    if(creature.Cell == drawable)
+                    {
+                        drawable = creature;
+                        break; 
+                    }
+                }
+                Console.ForegroundColor = drawable.Color;
+                Console.Write(drawable.Symbol); 
             }
             Console.WriteLine(); 
         }
@@ -57,8 +71,9 @@ internal class Game
     {
         //ToDo: Read from config maybe
         map = new Map(width: 10, height: 10);
-        Cell heroCell = map.GetCell(0, 0); 
+        Cell heroCell = map.GetCell(0,0); 
         hero = new Hero(heroCell);
+        map.Creatures.Add(hero); 
         
     }
 }
