@@ -7,6 +7,8 @@
 
     public Position Position { get; set; }
 
+    public List<Item> Items { get; } = new List<Item>(); 
+
     public Cell(Position position)
     {
         Color = ConsoleColor.Red;

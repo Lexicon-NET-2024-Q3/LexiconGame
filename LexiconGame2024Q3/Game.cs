@@ -81,5 +81,10 @@ internal class Game
         hero = new Hero(heroCell);
         map.Creatures.Add(hero);
 
+        map.GetCell(2, 4)?.Items.Add(Item.Coin());
+        map.GetCell(3, 7)?.Items.Add(Item.Coin());
+        map.GetCell(4, 8)?.Items.Add(Item.Stone());
+        map.GetCell(3, 7)?.Items.Add(Item.Stone());
+
     }
 }

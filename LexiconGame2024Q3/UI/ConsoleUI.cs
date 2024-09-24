@@ -21,11 +21,13 @@ namespace LexiconGame2024Q3.UI
             {
                 for (int x = 0; x < map.Width; x++)
                 {
-
-                    IDrawable? drawable = map.GetCell(y, x);
+                    Cell? cell = map.GetCell(y, x);
+                    IDrawable? drawable = cell; 
                     ArgumentNullException.ThrowIfNull(drawable, nameof(drawable));
 
-                    drawable = map.Creatures.CreatureAtExtension(drawable);
+                    //drawable = map.Creatures.CreatureAtExtension(drawable);
+                    drawable = map.Creatures.CreatureAtExtension2(cell)
+                        ?? cell.Items.FirstOrDefault() as IDrawable ?? cell;
 
                     Console.ForegroundColor = drawable.Color;
                     Console.Write(drawable.Symbol);

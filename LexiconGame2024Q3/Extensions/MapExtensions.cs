@@ -23,5 +23,20 @@ namespace LexiconGame2024Q3.Extensions
 
             return result; 
         }
+        public static IDrawable CreatureAtExtension2(this List<Creature> creatures, Cell drawable)
+        {
+            IDrawable result = null;
+
+            foreach (var creature in creatures)
+            {
+                if (creature.Cell == drawable)
+                {
+                    result = creature;
+                    break;
+                }
+            }
+
+            return result; 
+        }
     }
 }
