@@ -10,7 +10,7 @@ namespace LexiconGame2024Q3.LimitedList
     public class LimitedList<T> : IEnumerable<T>
     {
         private readonly int capacity;
-        private List<T> list;
+        protected List<T> list;
 
         public int Count => list.Count;
 
@@ -22,7 +22,7 @@ namespace LexiconGame2024Q3.LimitedList
             list = new List<T>(this.capacity); 
         }
 
-        public bool Add(T item)
+        public virtual bool Add(T item)
         {
             ArgumentNullException.ThrowIfNull(item, nameof(item));
             if (IsFull) return false;
