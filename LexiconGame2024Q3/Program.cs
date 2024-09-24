@@ -1,9 +1,18 @@
 ﻿
-LimitedList<Creature> li = new LimitedList<Creature>(4);
-LimitedList<int> li2 = new LimitedList<int>(3);
+//string someText = "Hej på dig";
 
-List<Creature> li3 = new List<Creature>();
-List<int> li4 = new List<int>(); 
+//foreach (var item in someText)
+//{
+//    Console.WriteLine(item);
+//}
+
+//var backpack = new LimitedList<string>(6);
+//backpack.Add("Hej");
+
+//foreach (var item in backpack)
+//{
+//    Console.WriteLine(item);
+//}
 
 var game = new Game();
 game.Run();
