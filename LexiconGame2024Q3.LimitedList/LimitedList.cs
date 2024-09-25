@@ -29,6 +29,13 @@ namespace LexiconGame2024Q3.LimitedList
             list.Add(item); return true; 
         }
 
+        public void Print(Action<T> action)
+        {
+            //list.ForEach(action);
+            //list.ForEach(x => action(x));
+            list.ForEach(x => action?.Invoke(x)); 
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             foreach (T item in list)

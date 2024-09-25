@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LexiconGame2024Q3.LimitedList
 {
-    internal class MessageLog<T> : LimitedList<T>
+    public class MessageLog<T> : LimitedList<T>
     {
         private static MessageLog<string> messageLog = new(6); 
         public MessageLog(int capacity) : base(capacity) { }

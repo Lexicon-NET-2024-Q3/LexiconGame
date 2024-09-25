@@ -8,6 +8,19 @@ namespace LexiconGame2024Q3.UI
 {
     internal class ConsoleUI
     {
+
+        private static MessageLog<string> messageLog = new(6);
+
+        internal static void AddMessage(string message) => messageLog.Add(message); 
+        //{
+        //    messageLog.Add(message); 
+        //}
+        internal static void PrintLog()
+        {
+            messageLog.Print(m => Console.WriteLine(m));
+            //messageLog.Print(Console.WriteLine);
+        }
+
         internal static ConsoleKey GetKey() => Console.ReadKey(intercept: true).Key; 
 
         internal static void Clear()

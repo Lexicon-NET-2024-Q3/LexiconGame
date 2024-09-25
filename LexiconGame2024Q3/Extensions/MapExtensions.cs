@@ -10,33 +10,37 @@ namespace LexiconGame2024Q3.Extensions
     {
         public static IDrawable CreatureAtExtension(this List<Creature> creatures, IDrawable drawable)
         {
-            IDrawable result = drawable;
+            //IDrawable result = drawable;
 
-            foreach (var creature in creatures)
-            {
-                if (creature.Cell == drawable)
-                {
-                    result = creature;
-                    break;
-                }
-            }
+            //foreach (var creature in creatures)
+            //{
+            //    if (creature.Cell == drawable)
+            //    {
+            //        result = creature;
+            //        break;
+            //    }
+            //}
 
-            return result; 
+            //return result; 
+
+            return creatures.FirstOrDefault(d => d.Cell == drawable) ?? drawable as IDrawable;
         }
         public static IDrawable CreatureAtExtension2(this List<Creature> creatures, Cell drawable)
         {
-            IDrawable result = null;
+            //IDrawable result = null;
 
-            foreach (var creature in creatures)
-            {
-                if (creature.Cell == drawable)
-                {
-                    result = creature;
-                    break;
-                }
-            }
+            //foreach (var creature in creatures)
+            //{
+            //    if (creature.Cell == drawable)
+            //    {
+            //        result = creature;
+            //        break;
+            //    }
+            //}
 
-            return result; 
+            //return result;
+            //
+            return creatures.FirstOrDefault(d => d.Cell == drawable); 
         }
     }
 }
