@@ -17,7 +17,7 @@ namespace LexiconGame2024Q3.UI
         //}
         internal static void PrintLog()
         {
-            messageLog.Print(m => Console.WriteLine(m));
+            messageLog.Print(m => Console.WriteLine(m + new string(' ', Console.WindowWidth - m.Length)));
             //messageLog.Print(Console.WriteLine);
         }
 

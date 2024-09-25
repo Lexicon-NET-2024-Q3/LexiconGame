@@ -16,6 +16,14 @@ namespace LexiconGame2024Q3.LimitedList
 
         public bool IsFull => capacity <= Count;
 
+        public T this[int index] /*=> list[index];*/
+        {
+            get
+            {
+                return list[index]; 
+            }
+        }
+
         public LimitedList(int capacity)
         {
             this.capacity = Math.Max(capacity, 2);
