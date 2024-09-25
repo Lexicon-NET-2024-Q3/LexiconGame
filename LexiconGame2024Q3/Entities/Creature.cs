@@ -21,8 +21,7 @@ namespace LexiconGame2024Q3.Entities
             }
         }
         public string Symbol { get; }
-
-        //public string Symbol { get; }
+        public int Health { get; } = 100; 
 
         public ConsoleColor Color { get; protected set; } = ConsoleColor.Green;
 

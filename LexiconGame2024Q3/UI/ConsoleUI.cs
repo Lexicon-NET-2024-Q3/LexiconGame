@@ -49,5 +49,13 @@ namespace LexiconGame2024Q3.UI
             }
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+
+        internal static void PrintStats(string stats)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(stats);
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+        }
     }
 }
