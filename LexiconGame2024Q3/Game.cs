@@ -72,6 +72,7 @@ internal class Game
 
     private void Inventory()
     {
+        ConsoleUI.AddMessage(hero.BackPack.Count > 0 ? "Inventory:" : "No items"); 
         for (int i = 0; i < hero.BackPack.Count; i++)
         {
             ConsoleUI.AddMessage($"{i + 1}: {hero.BackPack[i]}"); 
