@@ -7,6 +7,7 @@ internal class Game
     private Dictionary<ConsoleKey, Action> actionMenu;
     private Map map = null!;
     private Hero hero = null!;
+    private bool gameInProgress;
 
     internal void Run()
     {
@@ -16,7 +17,7 @@ internal class Game
 
     private void Play()
     {
-        bool gameInProgress = true;
+        gameInProgress = true;
 
         do
         {
@@ -128,6 +129,8 @@ internal class Game
             opponent.Attack(hero); 
         }
 
+        gameInProgress = !hero.IsDead; 
+
         if (newCell is not null)
         {
             hero.Cell = newCell;
@@ -141,7 +144,7 @@ internal class Game
     {
         ConsoleUI.Clear();
         ConsoleUI.Draw(map);
-        ConsoleUI.PrintStats($"Hero's Health: {hero.Health}, Enemies: {map.Creatures.Count - 1} ");
+        ConsoleUI.PrintStats($"Hero's Health: {hero.Health}, Enemies: {map.Creatures.Where(c=>!c.IsDead).Count() - 1} ");
         ConsoleUI.PrintLog();
     }
 
