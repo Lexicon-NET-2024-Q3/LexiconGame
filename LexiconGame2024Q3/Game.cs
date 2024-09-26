@@ -93,9 +93,10 @@ internal class Game
 
         if (item is null) return;
 
-        if(item is Potion healthPotion)
+        if(item is IUseable healthPotion)
         {
-            healthPotion.Use(hero);
+            //healthPotion.Use(hero);
+            healthPotion.Use(hero, c=>c.Health +=30);
             hero.Cell.Items.Remove(item);
             ConsoleUI.AddMessage($"Hero used the {item}");
             return; 
