@@ -4,6 +4,7 @@ using LexiconGame2024Q3.Extensions;
 
 internal class Game
 {
+    private Dictionary<ConsoleKey, Action> actionMenu;
     private Map map = null!;
     private Hero hero = null!;
 
@@ -63,17 +64,11 @@ internal class Game
             //    break;
         }
 
-        var actionMenu = new Dictionary<ConsoleKey, Action>
-        {
-            {ConsoleKey.P, PickUp},
-            {ConsoleKey.I, Inventory}
-        };
+        
 
         if (actionMenu.ContainsKey(keyPressed))
-        {
-            actionMenu[keyPressed]?.Invoke(); 
-        }
-    }
+            actionMenu[keyPressed]?.Invoke();
+}
 
     private void Inventory()
     {
@@ -124,6 +119,11 @@ internal class Game
 
     private void Initialize()
     {
+        actionMenu = new Dictionary<ConsoleKey, Action>
+        {
+            {ConsoleKey.P, PickUp},
+            {ConsoleKey.I, Inventory}
+        };
         //ToDo: Read from config maybe
         map = new Map(width: 10, height: 10);
         Cell heroCell = map.GetCell(0, 0);
