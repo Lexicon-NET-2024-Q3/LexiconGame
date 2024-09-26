@@ -37,4 +37,10 @@ internal class Map
     {
         return GetCell(newPostion.Y, newPostion.X); 
     }
+
+    internal void Place(Creature creature)
+    {
+        if (Creatures.FirstOrDefault(c => c.Cell == creature.Cell) == null)
+            Creatures.Add(creature); 
+    }
 }
