@@ -54,6 +54,9 @@ namespace LexiconGame2024Q3.LimitedList
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator(); 
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public bool Remove(T item) => list.Remove(item);
+      
     }
 }

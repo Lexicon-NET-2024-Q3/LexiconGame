@@ -100,6 +100,20 @@ internal class Game
 
 
     }
+    private void Drop()
+    {
+        var item = hero.BackPack.FirstOrDefault();
+        
+        if(item != null && hero.BackPack.Remove(item))
+        {
+            hero.Cell.Items.Add(item);
+            ConsoleUI.AddMessage($"Hero dropped the {item}");
+        }
+        else
+        {
+            ConsoleUI.AddMessage("Backpack is empty"); 
+        }
+    }
 
     private void Move(Position movement)
     {
@@ -127,7 +141,8 @@ internal class Game
         actionMenu = new Dictionary<ConsoleKey, Action>
         {
             {ConsoleKey.P, PickUp},
-            {ConsoleKey.I, Inventory}
+            {ConsoleKey.I, Inventory},
+            {ConsoleKey.D, Drop }
         };
 
         var r = new Random();
@@ -168,4 +183,6 @@ internal class Game
         }
 
     }
+
+
 }
