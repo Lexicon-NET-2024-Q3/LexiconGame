@@ -105,9 +105,13 @@ internal class Game
     {
         Position newPosition = hero.Cell.Position + movement;
         Cell newCell = map.GetCell(newPosition);
-        if (newCell != null) hero.Cell = newCell;
-        //Cell newPosition = map.GetCell(y, x);
-        //if (newPosition is not null) hero.Cell = newPosition;
+        if (newCell is not null)
+        {
+            hero.Cell = newCell;
+
+            if (newCell.Items.Any())
+                ConsoleUI.AddMessage($"You see {string.Join(",", newCell.Items)}");
+        } 
     }
 
     private void DrawMap()
@@ -132,6 +136,11 @@ internal class Game
         Cell heroCell = map.GetCell(0, 0);
         hero = new Hero(heroCell);
         map.Creatures.Add(hero);
+
+        //map.GetCell(2, 2)!.Items.Add(Item.Coin());
+        //map.GetCell(2, 2)!.Items.Add(Item.Coin());
+        //map.GetCell(2, 2)!.Items.Add(Item.Coin());
+        //map.GetCell(2, 2)!.Items.Add(Item.Stone());
 
         RCell().Items.Add(Item.Coin());
         RCell().Items.Add(Item.Coin());
