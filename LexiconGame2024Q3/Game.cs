@@ -119,6 +119,15 @@ internal class Game
     {
         Position newPosition = hero.Cell.Position + movement;
         Cell newCell = map.GetCell(newPosition);
+
+        Creature? opponent = map.CreatureAt(newCell!);
+        
+        if(opponent is not null)
+        {
+            hero.Attack(opponent);
+            opponent.Attack(hero); 
+        }
+
         if (newCell is not null)
         {
             hero.Cell = newCell;
@@ -132,7 +141,7 @@ internal class Game
     {
         ConsoleUI.Clear();
         ConsoleUI.Draw(map);
-        ConsoleUI.PrintStats($"Hero's Health: {hero.Health}, Enemies: {map.Creatures.Count - 1}");
+        ConsoleUI.PrintStats($"Hero's Health: {hero.Health}, Enemies: {map.Creatures.Count - 1} ");
         ConsoleUI.PrintLog();
     }
 
@@ -169,6 +178,11 @@ internal class Game
         map.Place(new Troll(RCell()));
         map.Place(new Troll(map.GetCell(0,5)!));
         map.Place(new Troll(map.GetCell(0,5)!));
+
+        map.Creatures.ForEach(c =>
+        {
+            c.AddToLog = ConsoleUI.AddMessage;
+        });
 
         Cell RCell()
         {
