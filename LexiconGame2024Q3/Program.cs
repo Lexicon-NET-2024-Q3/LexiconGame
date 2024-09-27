@@ -1,5 +1,7 @@
 ﻿
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 IConfiguration config = new ConfigurationBuilder()
                             .SetBasePath(Environment.CurrentDirectory)
@@ -10,10 +12,23 @@ IConfiguration config = new ConfigurationBuilder()
 //var x = config.GetSection("game:mapsettings:x").Value; 
 //var y = config.GetSection("game:mapsettings:y").Value; 
 
-//var mapSettings = config.GetSection("game:mapsettings").GetChildren(); 
+//var mapSettings = config.GetSection("game:mapsettings").GetChildren();
+//
 
-var game = new Game(new ConsoleUI(), config);
-game.Run();
+var host = Host.CreateDefaultBuilder(args)
+               .ConfigureServices(services =>
+               {
+                   services.AddSingleton<IConfiguration>(config);
+                   services.AddSingleton<IUI, ConsoleUI>();
+                   services.AddSingleton<Game>(); 
+               })
+               .UseConsoleLifetime()
+               .Build();
+
+host.Services.GetRequiredService<Game>().Run();            
+
+//var game = new Game(new ConsoleUI(), config);
+//game.Run();
 
 Console.WriteLine("Game over");
 Console.ReadKey(); 
