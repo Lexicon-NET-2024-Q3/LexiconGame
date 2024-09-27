@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,13 @@ namespace LexiconGame2024Q3.Extensions
             //return result;
             //
             return creatures.FirstOrDefault(d => d.Cell == drawable); 
+        }
+
+        public static int GetMapSizeFor(this IConfiguration config, string value)
+        {
+            var section = config.GetSection("game:mapsettings");
+
+            return int.TryParse(section[value], out int result) ? result : 0; 
         }
     }
 }

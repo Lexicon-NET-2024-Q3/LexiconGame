@@ -178,7 +178,7 @@ internal class Game
 
         var r = new Random();
         //ToDo: Read from config maybe
-        map = new Map(width: 10, height: 10);
+        //map = new Map(width: 10, height: 10);
         Cell heroCell = map.GetCell(0, 0);
         hero = new Hero(heroCell);
         map.Creatures.Add(hero);
@@ -214,7 +214,7 @@ internal class Game
             var width = r.Next(0, map.Width);
             var height = r.Next(0, map.Height);
 
-            var cell = map.GetCell(width, height);
+            var cell = map.GetCell(height, width);
 
             ArgumentNullException.ThrowIfNull(cell, nameof(cell));
 
