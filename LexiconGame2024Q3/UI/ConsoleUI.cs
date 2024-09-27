@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace LexiconGame2024Q3.UI
 {
-    public class ConsoleUI
+    public class ConsoleUI : IUI
     {
 
         private static MessageLog<string> messageLog = new(6);
 
-        public void AddMessage(string message) => messageLog.Add(message); 
+        public void AddMessage(string message) => messageLog.Add(message);
         //{
         //    messageLog.Add(message); 
         //}
@@ -21,12 +21,12 @@ namespace LexiconGame2024Q3.UI
             //messageLog.Print(Console.WriteLine);
         }
 
-        public ConsoleKey GetKey() => Console.ReadKey(intercept: true).Key; 
+        public ConsoleKey GetKey() => Console.ReadKey(intercept: true).Key;
 
         public void Clear()
         {
             Console.CursorVisible = false;
-            Console.SetCursorPosition(0, 0); 
+            Console.SetCursorPosition(0, 0);
         }
         public void Draw(Map map)
         {
@@ -35,7 +35,7 @@ namespace LexiconGame2024Q3.UI
                 for (int x = 0; x < map.Width; x++)
                 {
                     Cell? cell = map.GetCell(y, x);
-                    IDrawable? drawable = cell; 
+                    IDrawable? drawable = cell;
                     ArgumentNullException.ThrowIfNull(drawable, nameof(drawable));
 
                     //drawable = map.Creatures.CreatureAtExtension(drawable);
