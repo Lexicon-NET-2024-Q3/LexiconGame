@@ -28,7 +28,7 @@ namespace LexiconGame2024Q3.UI
             Console.CursorVisible = false;
             Console.SetCursorPosition(0, 0);
         }
-        public void Draw(Map map)
+        public void Draw(IMap map)
         {
             for (int y = 0; y < map.Height; y++)
             {
