@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace LexiconGame2024Q3.UI
 {
-    internal class ConsoleUI
+    public class ConsoleUI
     {
 
         private static MessageLog<string> messageLog = new(6);
 
-        internal static void AddMessage(string message) => messageLog.Add(message); 
+        public void AddMessage(string message) => messageLog.Add(message); 
         //{
         //    messageLog.Add(message); 
         //}
-        internal static void PrintLog()
+        public void PrintLog()
         {
             messageLog.Print(m => Console.WriteLine(m + new string(' ', Console.WindowWidth - m.Length)));
             //messageLog.Print(Console.WriteLine);
         }
 
-        internal static ConsoleKey GetKey() => Console.ReadKey(intercept: true).Key; 
+        public ConsoleKey GetKey() => Console.ReadKey(intercept: true).Key; 
 
-        internal static void Clear()
+        public void Clear()
         {
             Console.CursorVisible = false;
             Console.SetCursorPosition(0, 0); 
         }
-        internal static void Draw(Map map)
+        public void Draw(Map map)
         {
             for (int y = 0; y < map.Height; y++)
             {
@@ -50,7 +50,7 @@ namespace LexiconGame2024Q3.UI
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
-        internal static void PrintStats(string stats)
+        public void PrintStats(string stats)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(stats);

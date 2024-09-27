@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LexiconGame2024Q3.Items
 {
-    internal class Item : IDrawable
+    public class Item : IDrawable
     {
         private readonly string name;
 

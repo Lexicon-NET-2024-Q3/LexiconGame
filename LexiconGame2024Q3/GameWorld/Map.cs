@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
-internal class Map
+public class Map
 {
     private Cell[,] cells; 
     public int Width { get; }
@@ -26,25 +26,25 @@ internal class Map
         }
     }
 
-    //ToDo: Do better
+    
     //[return: MaybeNull]
-    internal Cell? GetCell(int y, int x)
+    public Cell? GetCell(int y, int x)
     {
         return (x < 0 || x >= Width || y < 0 || y >= Height) ? null : cells[y, x]; 
     }
     [return:MaybeNull]
-    internal Cell GetCell(Position newPostion)
+    public Cell GetCell(Position newPostion)
     {
         return GetCell(newPostion.Y, newPostion.X); 
     }
 
-    internal void Place(Creature creature)
+    public void Place(Creature creature)
     {
         if (Creatures.FirstOrDefault(c => c.Cell == creature.Cell) == null)
             Creatures.Add(creature); 
     }
 
-    internal Creature? CreatureAt(Cell cell)
+    public Creature? CreatureAt(Cell cell)
     {
         return Creatures.FirstOrDefault(c => c.Cell == cell); 
     }
