@@ -22,7 +22,9 @@ var host = Host.CreateDefaultBuilder(args)
                    services.AddSingleton<IUI, ConsoleUI>();
                    services.AddSingleton<IMap, Map>();
                    services.AddSingleton<Game>();
-                   services.AddSingleton<ILimitedList<string>>(new MessageLog<string>(6)); 
+                   services.AddSingleton<ILimitedList<string>>(new MessageLog<string>(6));
+                   services.AddSingleton<IMapSettings>(config.GetSection("game:mapsettings").Get<MapSettings>()!);
+                   services.Configure<MapSettings>(config.GetSection("game:mapsettings").Bind);
                })
                .UseConsoleLifetime()
                .Build();

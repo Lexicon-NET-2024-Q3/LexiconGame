@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
@@ -11,10 +12,16 @@ public class Map : IMap
 
     public List<Creature> Creatures { get; } = new List<Creature>();
 
-    public Map(IConfiguration config)
+    public Map(IConfiguration config, IMapSettings mapSettings, IOptions<MapSettings> options)
     {
-        var width = config.GetMapSizeFor("x");
-        var height = config.GetMapSizeFor("y");
+        //var width = config.GetMapSizeFor("x");
+        //var height = config.GetMapSizeFor("y");
+
+        //var width = mapSettings.X;
+        //var height = mapSettings.Y;
+
+        var width = options.Value.X; 
+        var height = options.Value.Y;
 
         this.Width = width;
         this.Height = height;
