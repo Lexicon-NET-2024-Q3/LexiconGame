@@ -20,7 +20,9 @@ var host = Host.CreateDefaultBuilder(args)
                {
                    services.AddSingleton<IConfiguration>(config);
                    services.AddSingleton<IUI, ConsoleUI>();
-                   services.AddSingleton<Game>(); 
+                   services.AddSingleton<IMap, Map>();
+                   services.AddSingleton<Game>();
+                   services.AddSingleton<ILimitedList<string>>(new MessageLog<string>(6)); 
                })
                .UseConsoleLifetime()
                .Build();

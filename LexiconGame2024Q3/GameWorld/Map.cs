@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
@@ -10,21 +11,26 @@ public class Map : IMap
 
     public List<Creature> Creatures { get; } = new List<Creature>();
 
-    public Map(int width, int height)
+    public Map(IConfiguration config)
     {
-        Width = width;
-        Height = height;
+        var width = config.GetMapSizeFor("x");
+        var height = config.GetMapSizeFor("y");
 
-        cells = new Cell[height, width];
+        this.Width = width;
+        this.Height = height;
 
-        for (int y = 0; y < height; y++)
+        cells = new Cell[Height, Width];
+
+        for (int y = 0; y < Height; y++)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < Width; x++)
             {
                 cells[y, x] = new Cell(new Position(y, x));
             }
         }
     }
+
+
 
 
     //[return: MaybeNull]
