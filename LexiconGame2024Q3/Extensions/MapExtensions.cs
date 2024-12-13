@@ -49,6 +49,33 @@ namespace LexiconGame2024Q3.Extensions
             var section = config.GetSection("game:mapsettings");
 
             return int.TryParse(section[value], out int result) ? result : 0; 
+        } 
+        
+
+
+    }
+
+    public static class ConfigExtension2
+    {
+        public static IGetMapSize Implementation { private get; set; } = new GetMapSize();
+        public static int GetMapSizeFor2(this IConfiguration config, string value)
+        {
+            return Implementation.GetMapSizeFor2(config, value);
         }
+    }
+
+    public class GetMapSize : IGetMapSize
+    {
+        public int GetMapSizeFor2(IConfiguration config, string value)
+        {
+            var section = config.GetSection("game:mapsettings");
+
+            return int.TryParse(section[value], out int result) ? result : 0;
+        }
+    }
+
+    public interface IGetMapSize
+    {
+        int GetMapSizeFor2(IConfiguration config, string value);
     }
 }
