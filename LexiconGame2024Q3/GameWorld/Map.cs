@@ -14,10 +14,10 @@ public class Map : IMap
     public List<Creature> Creatures { get; } = new List<Creature>();
 
    // public Map(IConfiguration config, IMapSettings mapSettings, IOptions<MapSettings> options, IMapService mapService)
-    public Map(IConfiguration config)
+   // public Map(IConfiguration config)
     {
-        var width = config.GetMapSizeFor2("x");
-        var height = config.GetMapSizeFor2("y");
+        //var width = config.GetMapSizeFor3("x");
+        //var height = config.GetMapSizeFor3("y");
 
         //var width = mapSettings.X;
         //var height = mapSettings.Y;

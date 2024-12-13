@@ -55,6 +55,24 @@ namespace LexiconGame2024Q3.Extensions
 
     }
 
+    public static class ConfigExtension3
+    {
+        public static Func<IConfiguration, string, int> Implementation { private get; set; } =
+            (config, value) =>
+            {
+                var section = config.GetSection("game:mapsettings");
+
+                return int.TryParse(section[value], out int result) ? result : 0;
+            };
+
+        public static int GetMapSizeFor3(this IConfiguration config, string value)
+        {
+            return Implementation(config, value);
+        }
+    }
+
+
+
     public static class ConfigExtension2
     {
         public static IGetMapSize Implementation { private get; set; } = new GetMapSize();

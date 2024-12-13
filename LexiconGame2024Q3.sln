@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LexiconGame2024Q3", "Lexico
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexiconGame2024Q3.LimitedList", "LexiconGame2024Q3.LimitedList\LexiconGame2024Q3.LimitedList.csproj", "{E649FE5C-4C30-44B0-AE64-0E0B825DBD1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeixonGame.Tests", "LeixonGame.Tests\LeixonGame.Tests.csproj", "{4DD35E3E-E56B-432D-BFFA-00C419B2E9C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E649FE5C-4C30-44B0-AE64-0E0B825DBD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E649FE5C-4C30-44B0-AE64-0E0B825DBD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E649FE5C-4C30-44B0-AE64-0E0B825DBD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD35E3E-E56B-432D-BFFA-00C419B2E9C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD35E3E-E56B-432D-BFFA-00C419B2E9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD35E3E-E56B-432D-BFFA-00C419B2E9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD35E3E-E56B-432D-BFFA-00C419B2E9C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
